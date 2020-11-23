@@ -56,7 +56,7 @@ include "config.php";
                 <hr>
                     <div class="row contactItem">
                         <div class="col-sm-2 text-center">
-                            <h4>Číslo</h4>
+                            <h4>Poradové číslo</h4>
                         </div>
                         <div class="col-sm-2 text-center">
                             <h4>Meno</h4>
