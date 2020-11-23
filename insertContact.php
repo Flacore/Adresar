@@ -8,7 +8,7 @@ if(isset($_POST["but_add"])) {
         ++$ID;
     }
 
-    $id=($ID)+1;
+    $id=($ID)+2;
     $Name=$_POST['fname'];
     $LastName=$_POST['lname'];
     $Company=$_POST['company'];

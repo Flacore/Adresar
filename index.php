@@ -44,7 +44,7 @@ include "config.php";
                 </div>
                 <div class="row">
                     <div class="col-sm-6 text-right"><h5>Zadaj tel. číslo:</h5></div>
-                    <div class="col-sm-6 text-left"><input type="text" id="telephone" name="telephone" pattern="[0-9]{10}|[-+]{1}[0-9]{12}" required></div>
+                    <div class="col-sm-6 text-left"><input type="text" id="telephone" name="telephone" pattern="[-0]{1}[-9]{1}[0-9]{8}|[-+]{1}[0-9]{12}" required></div>
                 </div>
                 <div class="row col-sm-12 text-right"><input type="submit" value="Pridaj" name="but_add" id="but_add"></div>
             </form>
@@ -80,20 +80,21 @@ include "config.php";
             <div id="items">
                 <?php
                 $sql = mysqli_query($con, "SELECT * FROM kontakt ");
-                $i = 0;
+                $j = 0;
                 $data=[];
                 while ($row = $sql->fetch_assoc()){
-                    $data[$i]=$row;
-                    ++$i;
+                    $data[$j]=$row;
+                    ++$j;
                 }
-                if($i>=1) {
-                    for ($tmp = 0; $tmp < $i; $tmp++) {
-                        $row = $data[$tmp];
+                if($j>=1) {
+                    for ($i = 0; $i < $j; $i++) {
+                        $n=$i+1;
+                        $row = $data[$i];
                         echo
                         " <div>
                             <div class=\"row\">
                                 <div class=\"col-sm-2 text-center\">
-                                    <h5>".$i."</h5>
+                                    <h5>".$n."</h5>
                                 </div>
                                 <div class=\"col-sm-2 text-center\">
                                     <h5>".$row['Meno']."</h5>
@@ -127,7 +128,7 @@ include "config.php";
                                      <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"lname\" name=\"lname\" value='".$row['Priezvisko']."' pattern=\"[A-Za-z]{1}[a-z]{1,}\"></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"company\" name=\"company\" value='".$row['Firma']."'></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"email\" id=\"e-mail\" name=\"e-mail\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$\" value='".$row['e_Mail']."' ></div>
-                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"telephone\" name=\"telephone\" pattern=\"[0-9]{10}|[-+]{1}[0-9]{12}\" required value='".$row['Tel_cislo']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"telephone\" name=\"telephone\" pattern=\"[-0]{1}[-9]{1}[0-9]{8}|[-+]{1}[0-9]{12}\" required value='".$row['Tel_cislo']."'></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"submit\" value=\"Vykonaj\" name=\"but_Change\" id=\"but_change\"></div>
                                 </form>
                              </div>
