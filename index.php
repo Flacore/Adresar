@@ -93,7 +93,7 @@ include "config.php";
                         " <div>
                             <div class=\"row\">
                                 <div class=\"col-sm-2 text-center\">
-                                    <h5>".$row['id_contact']."</h5>
+                                    <h5>".$i."</h5>
                                 </div>
                                 <div class=\"col-sm-2 text-center\">
                                     <h5>".$row['Meno']."</h5>
@@ -111,13 +111,19 @@ include "config.php";
                                     <h5>".$row['Tel_cislo']."</h5>
                                 </div>
                             </div>
-                            <hr>
+                            <div class=\'row\'>
+                                <form method=\"post\" action=\"deleteContact.php\">
+                                    <input id=\"delID\" name=\"delID\" value=\"".$row['id_contact']."\" style='display: none' >
+                                    <div class=\"row col-sm-12 text-right\"><input type=\"submit\" value=\"Odstraň\" name=\"but_delete\" id=\"but_delete\"></div>
+                                </form>
+                            </div>
+                            <br><hr>
                         </div>"
                         ;
                     }
                 }
                 if($i==0){
-                    echo "<H1 style='color: red'>Neexistuje ziadni kontakt</H1>";
+                    echo "<H1 class='text-center' style='color: red'>Neexistuje žiadny kontakt</H1>";
                 }
                 ?>
             </div>
