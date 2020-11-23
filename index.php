@@ -28,15 +28,15 @@ include "config.php";
             <form  method="post" action="insertContact.php">
                 <div class="row">
                     <div class="col-sm-6 text-right"><h5>Zadaj meno:</h5></div>
-                    <div class="col-sm-6 text-left"><input type="text" id="fname" name="fname" required></div>
+                    <div class="col-sm-6 text-left"><input type="text" id="fname" name="fname" required pattern="[A-Za-z]{1}[a-z]{1,}"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 text-right"><h5>Zadaj priezvisko:</h5></div>
-                    <div class="col-sm-6 text-left"><input type="text" id="lname" name="lname" ></div>
+                    <div class="col-sm-6 text-left"><input type="text" id="lname" name="lname" pattern="[A-Za-z]{1}[a-z]{1,}"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 text-right"><h5>Zadaj názov firmy:</h5></div>
-                    <div class="col-sm-6 text-left"><input type="text" id="company" name="company" ></div>
+                    <div class="col-sm-6 text-left"><input type="text" id="company" name="company"></div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 text-right"><h5>Zadaj e-mail:</h5></div>
@@ -123,8 +123,8 @@ include "config.php";
                                 <hr style='width: 80%'>
                                 <form method=\"post\" action=\"updateContact.php\">
                                      <input id=\"chngID\" name=\"chngID\" value=\"".$row['id_contact']."\" style='display: none' >
-                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"fname\" name=\"fname\" required value='".$row['Meno']."'></div>
-                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"lname\" name=\"lname\" value='".$row['Priezvisko']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"fname\" name=\"fname\" required value='".$row['Meno']."' pattern=\"[A-Za-z]{1}[a-z]{1,}\"></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"lname\" name=\"lname\" value='".$row['Priezvisko']."' pattern=\"[A-Za-z]{1}[a-z]{1,}\"></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"company\" name=\"company\" value='".$row['Firma']."'></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"email\" id=\"e-mail\" name=\"e-mail\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$\" value='".$row['e_Mail']."' ></div>
                                      <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"telephone\" name=\"telephone\" pattern=\"[0-9]{10}|[-+]{1}[0-9]{12}\" required value='".$row['Tel_cislo']."'></div>
