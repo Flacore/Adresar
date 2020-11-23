@@ -36,5 +36,9 @@ hr{
 }
 
 #list{
+    display: inline;
+}
+
+#addList{
     display: none;
 }
