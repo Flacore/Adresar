@@ -1,0 +1,40 @@
+body{
+    background-color: lightgrey;
+    height: 100%;
+}
+
+.container{
+    margin: 5%;
+    width: 90%;
+    background-color: whitesmoke;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+hr{
+    border-color: black;
+    border-width: 1px;
+}
+
+.contactItem div:nth-child(1){
+    border-color: black;
+    border-width: 1px;
+    border-left-style: none;
+}
+
+.contactItem div{
+    border-color: black;
+    border-width: 1px;
+    border-left-style: solid;
+    text-align: center;
+}
+
+#headline{
+    background-color: grey;
+    color: white;
+}
+
+#list{
+    display: none;
+}
