@@ -112,11 +112,25 @@ include "config.php";
                                 </div>
                             </div>
                             <div class=\'row\'>
+                                <div class=\"row col-sm-6 text-center\" ><input onclick='makeChange(\"itemChange".$i."\")' type='submit' value=\"Uprav\" name=\"but_cahnge\" id=\"but_change\"></div>
+                                </div>
                                 <form method=\"post\" action=\"deleteContact.php\">
                                     <input id=\"delID\" name=\"delID\" value=\"".$row['id_contact']."\" style='display: none' >
-                                    <div class=\"row col-sm-12 text-right\"><input type=\"submit\" value=\"Odstraň\" name=\"but_delete\" id=\"but_delete\"></div>
+                                    <div class=\"row col-sm-6 text-center\"><input type=\"submit\" value=\"Odstraň\" name=\"but_delete\" id=\"but_delete\"></div>
                                 </form>
                             </div>
+                            <div class='row' id='itemChange".$i."' style='display: none'>
+                                <hr style='width: 80%'>
+                                <form method=\"post\" action=\"updateContact.php\">
+                                     <input id=\"chngID\" name=\"chngID\" value=\"".$row['id_contact']."\" style='display: none' >
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"fname\" name=\"fname\" required value='".$row['Meno']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"lname\" name=\"lname\" value='".$row['Priezvisko']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"company\" name=\"company\" value='".$row['Firma']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"email\" id=\"e-mail\" name=\"e-mail\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$\" value='".$row['e_Mail']."' ></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"text\" id=\"telephone\" name=\"telephone\" pattern=\"[0-9]{10}|[-+]{1}[0-9]{12}\" required value='".$row['Tel_cislo']."'></div>
+                                     <div class=\"col-sm-2 text-center\"><input type=\"submit\" value=\"Vykonaj\" name=\"but_Change\" id=\"but_change\"></div>
+                                </form>
+                             </div>
                             <br><hr>
                         </div>"
                         ;
@@ -127,6 +141,7 @@ include "config.php";
                 }
                 ?>
             </div>
+
         </div>
 
     </div>
@@ -144,6 +159,14 @@ include "config.php";
         }else{
             document.getElementById('list').style.display = 'inline';
             document.getElementById('addList').style.display = 'none';
+        }
+    }
+
+    function makeChange($name) {
+        if(document.getElementById($name).style.display == "inline"){
+            document.getElementById($name).style.display = 'none';
+        }else{
+            document.getElementById($name).style.display = 'inline';
         }
     }
 </script>
